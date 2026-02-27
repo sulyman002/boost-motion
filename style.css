@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pry: #5252ed;
+  --sec: #ffffffd9;
+  --txt: #000000;
+  --font-display: "Protest Strike", sans-serif;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+}
+
+section:nth-child(1) {
+  background: linear-gradient(to bottom, var(--pry), var(--sec));
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 20vw, 12rem);
+  position: relative;
+}
+section:nth-child(2) {
+  background-color: var(--sec);
+}
+
+section:nth-child(3) {
+  background: linear-gradient(to top, var(--pry), var(--sec));
+}
+
+.can-image {
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.image {
+    transform: rotate(-30deg);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(-30deg) scale(1);
+  }
+  50% {
+    transform: rotate(-30deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(-30deg) scale(1);
+  }
+}
+
+.carousel-window {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+}
+.carousel-window2 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 99;
+}
+
+.carousel-track {
+  display: inline-block;
+  padding-left:;
+  animation: marqueeRight 20s linear infinite;
+}
+.carousel-track2 {
+  display: inline-block;
+  animation: marqueeLeft 20s linear infinite;
+  animation-delay: -10s;
+}
+
+.carousel-content {
+  display: flex;
+  gap: 4;
+}
+.carousel-content2 {
+  display: flex;
+  gap: 4;
+}
+
+.carousel-content img {
+  width: 10%;
+}
+.carousel-content2 img {
+  width: 10%;
+}
+
+@keyframes marqueeLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50%, 0);
+  }
+}
